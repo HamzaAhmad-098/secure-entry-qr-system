@@ -129,15 +129,16 @@ def build_email(sender: str, recipient: str, name: str, roll: str, qr_bytes: byt
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Welcome Fest 2025 — Entry Pass</title>
 </head>
-<body style="margin:0;padding:0;background-color:#05050a;font-family:'Courier New',Courier,monospace;">
- 
+<body style="margin:0;padding:0;background-color:#05050a;font-family:'Segoe UI',Arial,sans-serif;">
+<!-- ░░ WRAPPER ░░ -->
 <table width="100%" cellpadding="0" cellspacing="0" border="0"
        style="background-color:#05050a;min-height:100vh;">
   <tr>
     <td align="center" style="padding:40px 16px;">
  
-      <table width="600" cellpadding="0" cellspacing="0" border="0"
-             style="max-width:600px;width:100%;background-color:#0d0d16;
+      <!-- ░░ CARD ░░ -->
+      <table width="650" cellpadding="0" cellspacing="0" border="0"
+             style="max-width:650px;width:100%;background-color:#0d0d16;
                     border:1px solid #1a1a2e;border-radius:16px;
                     overflow:hidden;box-shadow:0 0 60px rgba(0,255,136,0.08);">
  
@@ -146,39 +147,33 @@ def build_email(sender: str, recipient: str, name: str, roll: str, qr_bytes: byt
           <td style="padding:0;">
             <table width="100%" cellpadding="0" cellspacing="0" border="0"
                    style="background:linear-gradient(135deg,#0a0a14 0%,#0f1628 50%,#0a0a14 100%);
-                          border-bottom:1px solid #1a2a1a;position:relative;">
+                          border-bottom:1px solid #1a2a1a;">
               <tr>
                 <td style="padding:36px 40px 28px 40px;text-align:center;">
  
                   <div style="margin-bottom:20px;">
-                    <table width="100%" cellpadding="0" cellspacing="0">
-                      <tr>
-                        <td style="text-align:center;">
-                          <div style="height:2px;background:linear-gradient(90deg,transparent,#00ff88,#0088ff,transparent);margin-bottom:24px;"></div>
-                        </td>
-                      </tr>
-                    </table>
+                    <div style="height:2px;background:linear-gradient(90deg,transparent,#00ff88,#0088ff,transparent);margin-bottom:24px;"></div>
                   </div>
  
-                  <p style="margin:0 0 6px 0;font-size:12px;letter-spacing:4px;
+                  <p style="margin:0 0 6px 0;font-size:15px;letter-spacing:4px;
                              color:#00ff88;text-transform:uppercase;font-weight:700;">
                     UNIVERSITY OF ENGINEERING &amp; TECHNOLOGY, LAHORE
                   </p>
-                  <p style="margin:0 0 18px 0;font-size:11px;letter-spacing:2px;
-                             color:#4a6a5a;text-transform:uppercase;">
+                  <p style="margin:0 0 18px 0;font-size:14px;letter-spacing:2px;
+                             color:#7fffaa;text-transform:uppercase;">
                     SESSION 2024 PRESENTS
                   </p>
  
-                  <h1 style="margin:0;font-size:42px;font-weight:900;letter-spacing:-1px;
-                              font-family:'Courier New',Courier,monospace;line-height:1.1;">
+                  <h1 style="margin:0;font-size:52px;font-weight:900;letter-spacing:-1px;
+                              line-height:1.1;">
                     <span style="color:#ffffff;">WELCOME</span>
                     <span style="color:#00ff88;"> FEST</span>
                     <br/>
-                    <span style="color:#0088ff;font-size:48px;letter-spacing:2px;">2025</span>
+                    <span style="color:#00c8ff;font-size:58px;letter-spacing:2px;">2025</span>
                   </h1>
  
-                  <p style="margin:14px 0 0 0;font-size:13px;letter-spacing:3px;
-                             color:#6b6b88;text-transform:uppercase;">
+                  <p style="margin:14px 0 0 0;font-size:16px;letter-spacing:3px;
+                             color:#c0caf5;text-transform:uppercase;">
                     &lt; YOUR OFFICIAL ENTRY PASS /&gt;
                   </p>
  
@@ -195,22 +190,22 @@ def build_email(sender: str, recipient: str, name: str, roll: str, qr_bytes: byt
             <table width="100%" cellpadding="0" cellspacing="0" border="0"
                    style="background-color:#080810;border-bottom:1px solid #1a1a2e;">
               <tr>
-                <td width="50%" style="padding:16px 24px;border-right:1px solid #1a1a2e;text-align:center;">
-                  <p style="margin:0;font-size:11px;letter-spacing:3px;color:#00ff88;text-transform:uppercase;margin-bottom:4px;">
+                <td width="50%" style="padding:18px 24px;border-right:1px solid #1a1a2e;text-align:center;">
+                  <p style="margin:0;font-size:14px;letter-spacing:3px;color:#00ff88;text-transform:uppercase;margin-bottom:4px;">
                     📅 DATE
                   </p>
-                  <p style="margin:0;font-size:17px;font-weight:700;color:#ffffff;letter-spacing:1px;">
+                  <p style="margin:0;font-size:20px;font-weight:700;color:#ffffff;letter-spacing:1px;">
                     6 &amp; 7 MAY 2026
                   </p>
                 </td>
-                <td width="50%" style="padding:16px 24px;text-align:center;">
-                  <p style="margin:0;font-size:11px;letter-spacing:3px;color:#0088ff;text-transform:uppercase;margin-bottom:4px;">
+                <td width="50%" style="padding:18px 24px;text-align:center;">
+                  <p style="margin:0;font-size:14px;letter-spacing:3px;color:#00c8ff;text-transform:uppercase;margin-bottom:4px;">
                     📍 VENUE
                   </p>
-                  <p style="margin:0;font-size:15px;font-weight:700;color:#ffffff;letter-spacing:0.5px;">
+                  <p style="margin:0;font-size:18px;font-weight:700;color:#ffffff;letter-spacing:0.5px;">
                     Ground, Main Auditorium
                   </p>
-                  <p style="margin:2px 0 0 0;font-size:12px;color:#4a4a6a;">UET Lahore Campus</p>
+                  <p style="margin:4px 0 0 0;font-size:14px;color:#a8b2d1;">UET Lahore Campus</p>
                 </td>
               </tr>
             </table>
@@ -220,15 +215,14 @@ def build_email(sender: str, recipient: str, name: str, roll: str, qr_bytes: byt
         <!-- ══ GREETING ══ -->
         <tr>
           <td style="padding:32px 40px 20px 40px;">
-            <p style="margin:0;font-size:13px;letter-spacing:3px;color:#00ff88;
+            <p style="margin:0;font-size:16px;letter-spacing:3px;color:#00ff88;
                       text-transform:uppercase;margin-bottom:8px;">
-              // INITIALIZING ACCESS PASS
             </p>
-            <h2 style="margin:0;font-size:30px;font-weight:800;color:#ffffff;
-                       font-family:'Courier New',Courier,monospace;">
+            <h2 style="margin:0;font-size:36px;font-weight:800;color:#ffffff;
+                       line-height:1.2;">
               Hello, {name}!
             </h2>
-            <p style="margin:12px 0 0 0;font-size:15px;color:#8888aa;line-height:1.7;">
+            <p style="margin:14px 0 0 0;font-size:18px;color:#ccd6f6;line-height:1.7;">
               Your <span style="color:#00ff88;font-weight:700;">personal entry pass</span>
               for Welcome Fest 2025 has been generated and is ready to use.
               Present this QR code at the entrance gate for instant verification.
@@ -240,38 +234,38 @@ def build_email(sender: str, recipient: str, name: str, roll: str, qr_bytes: byt
         <tr>
           <td style="padding:0 40px 28px 40px;">
             <table width="100%" cellpadding="0" cellspacing="0" border="0"
-                   style="background-color:#0a0a18;border:1px solid #1e1e38;
+                   style="background-color:#0a0a18;border:1px solid #2a2a4a;
                           border-radius:10px;overflow:hidden;">
               <tr>
                 <td style="padding:0;">
-                  <div style="background:linear-gradient(90deg,#00ff8815,#0088ff10);
-                               padding:10px 20px;border-bottom:1px solid #1e1e38;">
-                    <p style="margin:0;font-size:11px;letter-spacing:3px;color:#00ff88;
-                               text-transform:uppercase;">STUDENT CREDENTIALS</p>
+                  <div style="background:linear-gradient(90deg,#00ff8820,#0088ff20);
+                               padding:12px 20px;border-bottom:1px solid #2a2a4a;">
+                    <p style="margin:0;font-size:14px;letter-spacing:3px;color:#00ff88;
+                               text-transform:uppercase;font-weight:700;">STUDENT CREDENTIALS</p>
                   </div>
                   <table width="100%" cellpadding="0" cellspacing="0" border="0">
                     <tr>
-                      <td width="50%" style="padding:16px 20px;border-right:1px solid #1a1a2e;
-                                             border-bottom:1px solid #1a1a2e;">
-                        <p style="margin:0;font-size:11px;letter-spacing:2px;color:#4a4a6a;
+                      <td width="50%" style="padding:16px 20px;border-right:1px solid #2a2a4a;
+                                             border-bottom:1px solid #2a2a4a;">
+                        <p style="margin:0;font-size:14px;letter-spacing:2px;color:#a8b2d1;
                                    text-transform:uppercase;margin-bottom:5px;">FULL NAME</p>
-                        <p style="margin:0;font-size:16px;font-weight:700;color:#ffffff;">{name}</p>
+                        <p style="margin:0;font-size:20px;font-weight:700;color:#ffffff;">{name}</p>
                       </td>
-                      <td width="50%" style="padding:16px 20px;border-bottom:1px solid #1a1a2e;">
-                        <p style="margin:0;font-size:11px;letter-spacing:2px;color:#4a4a6a;
+                      <td width="50%" style="padding:16px 20px;border-bottom:1px solid #2a2a4a;">
+                        <p style="margin:0;font-size:14px;letter-spacing:2px;color:#a8b2d1;
                                    text-transform:uppercase;margin-bottom:5px;">ROLL NUMBER</p>
-                        <p style="margin:0;font-size:16px;font-weight:700;color:#00ff88;
+                        <p style="margin:0;font-size:20px;font-weight:700;color:#00ff88;
                                    letter-spacing:1px;">{roll}</p>
                       </td>
                     </tr>
                     <tr>
-                      <td colspan="2" style="padding:14px 20px;">
-                        <p style="margin:0;font-size:11px;letter-spacing:2px;color:#4a4a6a;
-                                   text-transform:uppercase;margin-bottom:5px;">ACCESS LEVEL</p>
+                      <td colspan="2" style="padding:16px 20px;">
+                        <p style="margin:0;font-size:14px;letter-spacing:2px;color:#a8b2d1;
+                                   text-transform:uppercase;margin-bottom:6px;">ACCESS LEVEL</p>
                         <p style="margin:0;">
                           <span style="display:inline-block;background:#00ff8815;
-                                       border:1px solid #00ff8840;border-radius:4px;
-                                       padding:3px 12px;font-size:13px;font-weight:700;
+                                       border:1px solid #00ff8840;border-radius:6px;
+                                       padding:5px 16px;font-size:16px;font-weight:700;
                                        color:#00ff88;letter-spacing:2px;">
                             ● FULL ACCESS GRANTED
                           </span>
@@ -293,11 +287,11 @@ def build_email(sender: str, recipient: str, name: str, roll: str, qr_bytes: byt
                           border:1px solid #00ff8830;border-radius:12px;overflow:hidden;">
               <tr>
                 <td style="padding:28px 24px;text-align:center;">
-                  <p style="margin:0 0 6px 0;font-size:11px;letter-spacing:4px;
-                             color:#00ff88;text-transform:uppercase;">
+                  <p style="margin:0 0 6px 0;font-size:16px;letter-spacing:4px;
+                             color:#00ff88;text-transform:uppercase;font-weight:700;">
                     SCAN TO ENTER
                   </p>
-                  <p style="margin:0 0 20px 0;font-size:11px;letter-spacing:2px;color:#3a3a5a;">
+                  <p style="margin:0 0 20px 0;font-size:14px;letter-spacing:2px;color:#5a5a8a;">
                     ─────────────────────────────
                   </p>
  
@@ -305,17 +299,17 @@ def build_email(sender: str, recipient: str, name: str, roll: str, qr_bytes: byt
                                border:2px solid #00ff88;border-radius:12px;
                                padding:12px;box-shadow:0 0 30px rgba(0,255,136,0.2);">
                     <img src="cid:qr_image" alt="Your QR Entry Code"
-                         width="200" height="200"
+                         width="220" height="220"
                          style="display:block;border-radius:6px;"/>
                   </div>
  
-                  <p style="margin:18px 0 4px 0;font-size:11px;letter-spacing:2px;color:#3a3a5a;">
+                  <p style="margin:18px 0 4px 0;font-size:14px;letter-spacing:2px;color:#5a5a8a;">
                     ─────────────────────────────
                   </p>
-                  <p style="margin:0;font-size:12px;color:#4a4a6a;letter-spacing:1px;">
-                    UNIQUE ID: <span style="color:#0088ff;">{roll}</span>
+                  <p style="margin:0;font-size:16px;color:#a8b2d1;letter-spacing:1px;">
+                    UNIQUE ID: <span style="color:#00c8ff;font-weight:700;">{roll}</span>
                   </p>
-                  <p style="margin:6px 0 0 0;font-size:12px;color:#3a3a5a;">
+                  <p style="margin:6px 0 0 0;font-size:15px;color:#ff6666;">
                     ⚠ Do not share — one-time use per student
                   </p>
                 </td>
@@ -328,43 +322,42 @@ def build_email(sender: str, recipient: str, name: str, roll: str, qr_bytes: byt
         <tr>
           <td style="padding:0 40px 28px 40px;">
             <table width="100%" cellpadding="0" cellspacing="0" border="0"
-                   style="background-color:#0c0c1a;border:1px solid #1e1e38;
+                   style="background-color:#0c0c1a;border:1px solid #2a2a4a;
                           border-radius:10px;overflow:hidden;">
               <tr>
-                <td style="padding:18px 22px;">
-                  <p style="margin:0 0 12px 0;font-size:11px;letter-spacing:3px;
-                             color:#0088ff;text-transform:uppercase;">
-                    // IMPORTANT INSTRUCTIONS
+                <td style="padding:20px 24px;">
+                  <p style="margin:0 0 14px 0;font-size:16px;letter-spacing:3px;
+                             color:#00c8ff;text-transform:uppercase;font-weight:700;">
                   </p>
                   <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
-                      <td style="padding:4px 0;">
-                        <p style="margin:0;font-size:14px;color:#8888aa;line-height:1.6;">
-                          <span style="color:#00ff88;">→</span>
+                      <td style="padding:6px 0;">
+                        <p style="margin:0;font-size:17px;color:#ccd6f6;line-height:1.6;">
+                          <span style="color:#00ff88;font-weight:700;">→</span>
                           Bring this QR code on your phone or as a printout.
                         </p>
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding:4px 0;">
-                        <p style="margin:0;font-size:14px;color:#8888aa;line-height:1.6;">
-                          <span style="color:#00ff88;">→</span>
+                      <td style="padding:6px 0;">
+                        <p style="margin:0;font-size:17px;color:#ccd6f6;line-height:1.6;">
+                          <span style="color:#00ff88;font-weight:700;">→</span>
                           Gates open <strong style="color:#ffffff;">30 minutes</strong> before event start.
                         </p>
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding:4px 0;">
-                        <p style="margin:0;font-size:14px;color:#8888aa;line-height:1.6;">
-                          <span style="color:#00ff88;">→</span>
+                      <td style="padding:6px 0;">
+                        <p style="margin:0;font-size:17px;color:#ccd6f6;line-height:1.6;">
+                          <span style="color:#00ff88;font-weight:700;">→</span>
                           Your university ID card must match your registration.
                         </p>
                       </td>
                     </tr>
                     <tr>
-                      <td style="padding:4px 0;">
-                        <p style="margin:0;font-size:14px;color:#8888aa;line-height:1.6;">
-                          <span style="color:#00ff88;">→</span>
+                      <td style="padding:6px 0;">
+                        <p style="margin:0;font-size:17px;color:#ccd6f6;line-height:1.6;">
+                          <span style="color:#00ff88;font-weight:700;">→</span>
                           This pass is valid for <strong style="color:#ffffff;">both days</strong>: 6 &amp; 7 May 2026.
                         </p>
                       </td>
@@ -379,41 +372,39 @@ def build_email(sender: str, recipient: str, name: str, roll: str, qr_bytes: byt
         <!-- ══ LINKS SECTION ══ -->
         <tr>
           <td style="padding:0 40px 28px 40px;">
-            <p style="margin:0 0 14px 0;font-size:11px;letter-spacing:3px;
-                       color:#6b6b88;text-transform:uppercase;text-align:center;">
-              // QUICK LINKS
+            <p style="margin:0 0 14px 0;font-size:16px;letter-spacing:3px;
+                       color:#a8b2d1;text-transform:uppercase;text-align:center;">
             </p>
             <table width="100%" cellpadding="0" cellspacing="0" border="0">
               <tr>
                 <td width="33%" style="padding:0 6px 0 0;text-align:center;">
                   <a href="https://github.com/HamzaAhmad-098/secure-entry-qr-system"
-                     style="display:block;background:#0a0a18;border:1px solid #1e1e38;
-                            border-radius:8px;padding:14px 10px;text-decoration:none;
-                            transition:all 0.2s;">
-                    <p style="margin:0 0 6px 0;font-size:18px;">💻</p>
-                    <p style="margin:0;font-size:11px;letter-spacing:2px;color:#00ff88;
+                     style="display:block;background:#0a0a18;border:1px solid #2a2a4a;
+                            border-radius:8px;padding:14px 10px;text-decoration:none;">
+                    <p style="margin:0 0 6px 0;font-size:22px;">💻</p>
+                    <p style="margin:0;font-size:15px;letter-spacing:2px;color:#00ff88;
                                text-transform:uppercase;font-weight:700;">SYSTEM</p>
-                    <p style="margin:3px 0 0 0;font-size:11px;color:#4a4a6a;">GitHub Repo</p>
+                    <p style="margin:3px 0 0 0;font-size:14px;color:#a8b2d1;">GitHub Repo</p>
                   </a>
                 </td>
                 <td width="33%" style="padding:0 3px;text-align:center;">
                   <a href="https://chat.whatsapp.com/Lp5J6wNG3Ep99gAmfDSbAp"
-                     style="display:block;background:#0a0a18;border:1px solid #1e1e38;
+                     style="display:block;background:#0a0a18;border:1px solid #2a2a4a;
                             border-radius:8px;padding:14px 10px;text-decoration:none;">
-                    <p style="margin:0 0 6px 0;font-size:18px;">💬</p>
-                    <p style="margin:0;font-size:11px;letter-spacing:2px;color:#00ff88;
+                    <p style="margin:0 0 6px 0;font-size:22px;">💬</p>
+                    <p style="margin:0;font-size:15px;letter-spacing:2px;color:#00ff88;
                                text-transform:uppercase;font-weight:700;">COMMUNITY</p>
-                    <p style="margin:3px 0 0 0;font-size:11px;color:#4a4a6a;">WhatsApp Group</p>
+                    <p style="margin:3px 0 0 0;font-size:14px;color:#a8b2d1;">WhatsApp Group</p>
                   </a>
                 </td>
                 <td width="33%" style="padding:0 0 0 6px;text-align:center;">
                   <a href="https://maps.google.com/?q=University+of+Engineering+and+Technology+Lahore"
-                     style="display:block;background:#0a0a18;border:1px solid #1e1e38;
+                     style="display:block;background:#0a0a18;border:1px solid #2a2a4a;
                             border-radius:8px;padding:14px 10px;text-decoration:none;">
-                    <p style="margin:0 0 6px 0;font-size:18px;">📍</p>
-                    <p style="margin:0;font-size:11px;letter-spacing:2px;color:#0088ff;
+                    <p style="margin:0 0 6px 0;font-size:22px;">📍</p>
+                    <p style="margin:0;font-size:15px;letter-spacing:2px;color:#00c8ff;
                                text-transform:uppercase;font-weight:700;">VENUE</p>
-                    <p style="margin:3px 0 0 0;font-size:11px;color:#4a4a6a;">Get Directions</p>
+                    <p style="margin:3px 0 0 0;font-size:14px;color:#a8b2d1;">Get Directions</p>
                   </a>
                 </td>
               </tr>
@@ -427,41 +418,41 @@ def build_email(sender: str, recipient: str, name: str, roll: str, qr_bytes: byt
             <table width="100%" cellpadding="0" cellspacing="0" border="0"
                    style="background-color:#080810;border-top:1px solid #1a1a2e;">
               <tr>
-                <td style="padding:24px 40px;text-align:center;">
+                <td style="padding:28px 40px;text-align:center;">
                   <div style="height:1px;background:linear-gradient(90deg,transparent,#00ff8840,#0088ff40,transparent);margin-bottom:20px;"></div>
  
-                  <p style="margin:0 0 4px 0;font-size:13px;font-weight:700;
+                  <p style="margin:0 0 4px 0;font-size:18px;font-weight:700;
                              color:#ffffff;letter-spacing:2px;text-transform:uppercase;">
                     Welcome Fest 2025
                   </p>
-                  <p style="margin:0 0 12px 0;font-size:12px;color:#4a4a6a;letter-spacing:1px;">
+                  <p style="margin:0 0 12px 0;font-size:15px;color:#a8b2d1;letter-spacing:1px;">
                     University of Engineering &amp; Technology, Lahore
                   </p>
  
-                  <p style="margin:0 0 16px 0;font-size:12px;color:#3a3a5a;">
+                  <p style="margin:0 0 16px 0;font-size:15px;color:#5a5a8a;">
                     Entry System designed &amp; developed by
-                    <span style="color:#00ff88;font-weight:700;">Hamza Ahmad</span>
-                    — Session 2024
+                    <span style="color:#00ff88;font-weight:700;">Hamza Ahmad CS-12</span>
+                    Session 2024
                   </p>
  
                   <table width="100%" cellpadding="0" cellspacing="0">
                     <tr>
                       <td style="text-align:center;">
                         <a href="https://github.com/HamzaAhmad-098/secure-entry-qr-system"
-                           style="display:inline-block;margin:0 6px;font-size:12px;
-                                  color:#4a4a6a;text-decoration:none;letter-spacing:1px;">
+                           style="display:inline-block;margin:0 6px;font-size:15px;
+                                  color:#ccd6f6;text-decoration:none;letter-spacing:1px;">
                           GitHub
                         </a>
-                        <span style="color:#1a1a2e;">|</span>
+                        <span style="color:#2a2a4a;">|</span>
                         <a href="https://chat.whatsapp.com/Lp5J6wNG3Ep99gAmfDSbAp"
-                           style="display:inline-block;margin:0 6px;font-size:12px;
-                                  color:#4a4a6a;text-decoration:none;letter-spacing:1px;">
+                           style="display:inline-block;margin:0 6px;font-size:15px;
+                                  color:#ccd6f6;text-decoration:none;letter-spacing:1px;">
                           WhatsApp
                         </a>
-                        <span style="color:#1a1a2e;">|</span>
+                        <span style="color:#2a2a4a;">|</span>
                         <a href="https://maps.google.com/?q=University+of+Engineering+and+Technology+Lahore"
-                           style="display:inline-block;margin:0 6px;font-size:12px;
-                                  color:#4a4a6a;text-decoration:none;letter-spacing:1px;">
+                           style="display:inline-block;margin:0 6px;font-size:15px;
+                                  color:#ccd6f6;text-decoration:none;letter-spacing:1px;">
                           Venue Map
                         </a>
                       </td>
@@ -470,7 +461,7 @@ def build_email(sender: str, recipient: str, name: str, roll: str, qr_bytes: byt
  
                   <div style="height:1px;background:linear-gradient(90deg,transparent,#0088ff40,#00ff8840,transparent);margin-top:20px;margin-bottom:14px;"></div>
  
-                  <p style="margin:0;font-size:11px;color:#2a2a3a;letter-spacing:2px;text-transform:uppercase;">
+                  <p style="margin:0;font-size:14px;color:#ff8888;letter-spacing:2px;text-transform:uppercase;">
                     This QR code is unique to you — do not forward or share.
                   </p>
                 </td>
