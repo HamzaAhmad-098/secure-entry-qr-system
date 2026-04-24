@@ -10426,6 +10426,13 @@ tr:hover td{background:rgba(255,255,255,.02)}
           <h3>CAMERA FEED</h3>
           <div style="display:flex;align-items:center;gap:8px"><div class="status-dot" id="cam-dot"></div><span style="font-size:11px;font-family:var(--mono);color:var(--muted)" id="cam-status">OFFLINE</span></div>
         </div>
+        <!-- 🌟 RE‑ENTRY TOGGLE -->
+        <div style="padding:8px 18px; border-bottom:1px solid var(--border); background:var(--surface2);">
+          <label style="display:flex; align-items:center; gap:8px; font-family:var(--mono); font-size:12px; color:var(--accent); cursor:pointer; user-select:none;">
+            <input type="checkbox" id="reentry-toggle" onchange="toggleReentry()" style="accent-color:var(--accent); width:16px; height:16px;">
+            <span style="color:var(--muted);">Allow Re‑entry (rescan resets to absent)</span>
+          </label>
+        </div>
         <div id="scanner-placeholder" class="scanner-placeholder">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
@@ -10506,7 +10513,7 @@ tr:hover td{background:rgba(255,255,255,.02)}
 </div>
 
 <div id="toast"></div>
-
+<script src="config.js"></script>
 <script>
 // ════════════════════════════════════════════════════════════════════
 //  ALL LOGIC IN ONE PLAIN <script> — NO type="module"
@@ -10543,7 +10550,8 @@ var unsubStudents = null;
 var unsubLog      = null;
 var currentUser   = null;
 var SESSION_ID    = null;
-
+var reentryMode     = false;
+// Change the emails to your actual admin emails
 // Offscreen canvas — created once, never in the DOM
 var _offCanvas = document.createElement('canvas');
 var _offCtx    = _offCanvas.getContext('2d', { willReadFrequently: true });
@@ -10585,8 +10593,12 @@ auth.onAuthStateChanged(function(user){
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('app-screen').style.display   = 'block';
     document.getElementById('user-label').textContent     = user.email;
+    
+    // 🌟 Set tab access based on email
+    setTabAccess(isAdmin(user.email));
+    
     subscribeToSession();
-  } else {
+  }else {
     currentUser = null;
     if(unsubStudents){ unsubStudents(); unsubStudents = null; }
     if(unsubLog)     { unsubLog();      unsubLog = null; }
@@ -10595,7 +10607,31 @@ auth.onAuthStateChanged(function(user){
     document.getElementById('app-screen').style.display   = 'none';
   }
 });
+// 🌟 Check if email is in admin list
+function isAdmin(email){
+  return ADMIN_EMAILS.includes(email);
+}
 
+// 🌟 Show/hide tabs based on role
+function setTabAccess(isAdminUser){
+  var uploadTabBtn   = document.querySelectorAll('.tab')[0]; // "① Upload Sheet"
+  var scanTabBtn     = document.querySelectorAll('.tab')[1]; // "② Scan QR"
+  var dashboardTabBtn= document.querySelectorAll('.tab')[2]; // "③ Dashboard"
+  
+  if(isAdminUser){
+    // Admin – show all tabs
+    uploadTabBtn.style.display    = '';
+    dashboardTabBtn.style.display = '';
+    scanTabBtn.classList.add('active');   // make sure scan tab is active after login
+  } else {
+    // Volunteer – hide Upload and Dashboard tabs
+    uploadTabBtn.style.display    = 'none';
+    dashboardTabBtn.style.display = 'none';
+    // Force Scan tab to be active
+    scanTabBtn.classList.add('active');
+    switchTab('scan'); // activate the scan panel
+  }
+}
 // ── LOGIN / LOGOUT ────────────────────────────────────────────────
 function doLogin(){
   var email = document.getElementById('li-email').value.trim();
@@ -10924,8 +10960,20 @@ function handleScanOptimistic(qrData){
     result = { type:'denied', msg:'Student Not Found',
                sub:'This QR code does not match any registered student.', icon:'✕' };
     writeLogAsync(null, 'NOT FOUND', now, 'denied');
+// 🌟 RE‑ENTRY: if toggle is ON and student is already present → reset to absent
+  } else if(reentryMode && student.present){
+    student.present   = false;
+    student.scannedAt = null;
+    updateStudentLocal(student);
 
-  } else if(student.present){
+    result = { type:'allowed', msg:'Re‑Entry Granted',
+               sub:'Student status reset to absent.', icon:'↩',
+               student: Object.assign({}, student, { present:false, scannedAt:null }) };
+    writeLogAsync(student, 'RE‑ENTRY (Reset)', now, 'reentry');
+    resetStudentToAbsentAsync(student);
+
+  // Normal mode: already present → blocked
+  } else if(!reentryMode && student.present){
     result = { type:'already', msg:'Already Checked In',
                sub: student.name+' was already marked present at '+student.scannedAt+'.', icon:'⚠', student:student };
     writeLogAsync(student, 'DUPLICATE', now, 'warn');
@@ -11153,6 +11201,12 @@ function exportLog(){
 
 // ── TABS ──────────────────────────────────────────────────────────
 function switchTab(name){
+  // 🌟 Non‑admin users can only access the scan tab
+  if(!isAdmin(currentUser.email) && name !== 'scan'){
+    toast('Access restricted to volunteers','warn');
+    return;
+  }
+  
   document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
   document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
   var tabs = ['upload','scan','dashboard'];
@@ -11172,6 +11226,22 @@ document.addEventListener('DOMContentLoaded', function(){
   document.getElementById('li-pass').addEventListener('keydown',  function(e){ if(e.key==='Enter') doLogin(); });
   document.getElementById('li-email').addEventListener('keydown', function(e){ if(e.key==='Enter') doLogin(); });
 });
+// 🌟 NEW – Reset student to absent in Firestore
+function resetStudentToAbsentAsync(student){
+  if(!SESSION_ID) return;
+  var key = normKey(student.roll) || normKey(student.name);
+  db.collection('sessions').doc(SESSION_ID).collection('students').doc(key)
+    .update({ present:false, scannedAt:null })
+    .catch(function(e){ console.error('resetAbsent error:', e); });
+}
+// 🌟 RE‑ENTRY TOGGLE
+function toggleReentry(){
+  reentryMode = document.getElementById('reentry-toggle').checked;
+  if(reentryMode)
+    toast('Re‑entry mode ON: rescanning resets student to absent.','warn');
+  else
+    toast('Re‑entry mode OFF');
+}
 </script>
 </body>
 </html>
